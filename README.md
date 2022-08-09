@@ -42,6 +42,10 @@ Installed Laravel using composer create-project --prefer-dist laravel/laravel bl
 
 Install pgsql, If in case you got error connecting it on PHP find extension in php.ini (extension=pdo_pgsql extension=pgsql) uncomment these extensions.
 
+- Create a Database in pgsql and connect it by changing credentials in .env file
+- Use php artisan migrate --seed to create tables and seed it with default values
+
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
