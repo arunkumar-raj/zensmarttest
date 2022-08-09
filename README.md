@@ -48,21 +48,22 @@ Install pgsql, If in case you got error connecting it on PHP find extension in p
 - composer install --no-scripts
 
 - Create .env using .env example
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=laravel
-    DB_USERNAME=root
-    DB_PASSWORD=
+- Change the db values in .env
+    - DB_CONNECTION=mysql
+    - DB_HOST=127.0.0.1
+    - DB_PORT=3306
+    - DB_DATABASE=laravel
+    - DB_USERNAME=root
+    - DB_PASSWORD=
 
-    to 
+    -To 
 
-    DB_CONNECTION=pgsql
-    DB_HOST=127.0.0.1
-    DB_PORT=5432
-    DB_DATABASE=zensmart // Your database name
-    DB_USERNAME=postgres // Your Username
-    DB_PASSWORD=root //your password
+    - DB_CONNECTION=pgsql
+    - DB_HOST=127.0.0.1
+    - DB_PORT=5432
+    - DB_DATABASE=zensmart // Your database name
+    - DB_USERNAME=postgres // Your Username
+    - DB_PASSWORD=root //your password
 
 - php artisan key:generate
 
