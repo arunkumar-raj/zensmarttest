@@ -2568,6 +2568,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2584,13 +2586,30 @@ var Index = /*#__PURE__*/function (_Component) {
     _classCallCheck(this, Index);
 
     _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "getClicks", function () {
+      var self = _assertThisInitialized(_this);
+
+      axios.get('/get/clicks/count').then(function (response) {
+        console.log(response);
+      });
+    });
+
     _this.state = {
-      clicked_count: 0
+      clicked_count: 0,
+      click_history: null
     };
     return _this;
-  }
+  } //Life Cycle
+
 
   _createClass(Index, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getClicks();
+    } //Get the count 
+
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {

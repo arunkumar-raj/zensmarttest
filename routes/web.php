@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/get/clicks/count', 'ClickeventsController@Getclicks');
+Route::post('/save/clicks', 'ClickeventsController@Saveclicks');

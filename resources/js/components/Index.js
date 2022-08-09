@@ -5,8 +5,21 @@ class Index extends Component {
 
     constructor(props){
         super(props);
-        this.state = {clicked_count:0}
+        this.state = {clicked_count:0,click_history:null}
     }
+
+    //Life Cycle
+    componentDidMount(){
+        this.getClicks();
+    }
+
+    //Get the count 
+    getClicks = () => {
+        let self=this;
+        axios.get('/get/clicks/count').then(function (response){
+            console.log(response);
+        });
+    }        
 
     render() {
         return (
