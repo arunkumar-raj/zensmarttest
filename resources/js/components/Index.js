@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import { createRoot } from 'react-dom/client';
 
@@ -18,8 +19,29 @@ class Index extends Component {
         let self=this;
         axios.get('/get/clicks/count').then(function (response){
             console.log(response);
+            self.setState(
+                {
+                    clicked_count:response.data.current,
+                    click_history:response.data.all
+                }
+            );
         });
-    }        
+    }
+    
+    //Save the click in database
+    Saveclicks= () => {
+        let self=this;
+        axios.post('/save/clicks', {
+            no_of_clicks: this.state.clicked_count,
+          })
+          .then(function (response) {
+            console.log(response);
+            self.setState({clicked_count:response.data});
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
 
     render() {
         return (
@@ -34,6 +56,7 @@ class Index extends Component {
             </div>
         );
     }
+
 }
 
 export default Index;
