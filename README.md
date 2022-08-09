@@ -42,13 +42,36 @@ Installed Laravel using composer create-project --prefer-dist laravel/laravel bl
 
 - To clear Warning: ReactDOM.render is no longer supported in React 18. Use createRoot instead used import { createRoot } from 'react-dom/client';
 
-## Steps to Follow on deployment
+## Steps to Run the project
 
 Install pgsql, If in case you got error connecting it on PHP find extension in php.ini (extension=pdo_pgsql extension=pgsql) uncomment these extensions.
+- composer install --no-scripts
+
+- Create .env using .env example
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=laravel
+    DB_USERNAME=root
+    DB_PASSWORD=
+
+    to 
+
+    DB_CONNECTION=pgsql
+    DB_HOST=127.0.0.1
+    DB_PORT=5432
+    DB_DATABASE=zensmart // Your database name
+    DB_USERNAME=postgres // Your Username
+    DB_PASSWORD=root //your password
+
+- php artisan key:generate
 
 - Create a Database in pgsql and connect it by changing credentials in .env file
 - Use php artisan migrate --seed to create tables and seed it with default values
+- php artisan serve to run the server
+
 - npm install to work on files created using React Js
+- npm run watch or npm run dev
 - To test unit test cases use ./vendor/bin/phpunit --verbose tests/Unit/Clickevents.php
 
 
