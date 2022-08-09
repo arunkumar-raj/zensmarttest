@@ -29,12 +29,18 @@ Installed Laravel using composer create-project --prefer-dist laravel/laravel bl
 - php artisan ui react
 - npm install 
 - npm run dev
-- 
+- Update React to current version use php artisan preset react and change package.json react and react dom version to current 18.2.0 then run npm update
+- Change webpack.mix.js to 
+    mix.js('resources/js/app.js', 'public/js')
+    .react()
+    .sass('resources/sass/app.scss', 'public/css', [
+        //
+    ]);
 - 
 
 ## Steps to Follow on deployment
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Install pgsql, If in case you got error connecting it on PHP find extension in php.ini (extension=pdo_pgsql extension=pgsql) uncomment these extensions.
 
 ## License
 
