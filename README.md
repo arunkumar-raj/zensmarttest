@@ -38,6 +38,7 @@ Installed Laravel using composer create-project --prefer-dist laravel/laravel bl
     ]);
 - Created model and seeders using php artisan make:model Clickevents -mfs
 - Created Controller php artisan make:controller ClickeventsController
+- Create unit test using php artisan make:test Clickevents --unit
 
 - To clear Warning: ReactDOM.render is no longer supported in React 18. Use createRoot instead used import { createRoot } from 'react-dom/client';
 
@@ -47,6 +48,8 @@ Install pgsql, If in case you got error connecting it on PHP find extension in p
 
 - Create a Database in pgsql and connect it by changing credentials in .env file
 - Use php artisan migrate --seed to create tables and seed it with default values
+- npm install to work on files created using React Js
+- To test unit test cases use ./vendor/bin/phpunit --verbose tests/Unit/Clickevents.php
 
 
 ## License

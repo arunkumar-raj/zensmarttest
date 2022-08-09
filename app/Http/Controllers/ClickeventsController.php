@@ -13,11 +13,12 @@ class ClickeventsController extends Controller
     public function Getclicks(){
         try{
             $todayDate = date("Y-m-d");
-            //Get all archived data
-            $return_clicks['all'] = Clickevents::all();
-            $return_clicks['current'] = 0;
+
+            //Get all archived data except current date
+            $return_clicks['all'] = Clickevents::where('clicked_date', '!=' , $todayDate)->get();
 
             //Check current date and sends count
+            $return_clicks['current'] = 0;
             $today_clicks = Clickevents::where('clicked_date',$todayDate)->first();
             if(!empty($today_clicks)){
                 $return_clicks['current'] = $today_clicks->click_count;
@@ -34,6 +35,8 @@ class ClickeventsController extends Controller
         try{
             $no_of_clicks = $request->post('no_of_clicks');
             $todayDate = date("Y-m-d");
+            
+            //Check click for current date
             $check_clicks = Clickevents::where('clicked_date',$todayDate)->get();
 
             //If empty save new entry else update the previous entry

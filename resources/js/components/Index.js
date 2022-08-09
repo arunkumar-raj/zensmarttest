@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { createRoot } from 'react-dom/client';
+import History from './History';
 
 class Index extends Component {
 
@@ -18,7 +19,6 @@ class Index extends Component {
     getClicks = () => {
         let self=this;
         axios.get('/get/clicks/count').then(function (response){
-            console.log(response);
             self.setState(
                 {
                     clicked_count:response.data.current,
@@ -35,7 +35,6 @@ class Index extends Component {
             no_of_clicks: this.state.clicked_count,
           })
           .then(function (response) {
-            console.log(response);
             self.setState({clicked_count:response.data});
           })
           .catch(function (error) {
@@ -52,6 +51,7 @@ class Index extends Component {
                         <button type="button" onClick={this.Saveclicks} className="btn btn-primary clickmebtn">Click Me!</button>
                         <p className="lead button_value">Number of times the button was clicked since midnight today:{this.state.clicked_count}</p>
                     </div>
+                    <History datas={this.state.click_history} />
                 </div>
             </div>
         );
