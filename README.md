@@ -36,7 +36,10 @@ Installed Laravel using composer create-project --prefer-dist laravel/laravel bl
     .sass('resources/sass/app.scss', 'public/css', [
         //
     ]);
-- 
+- Created model and seeders using php artisan make:model Clickevents -mfs
+- Created Controller php artisan make:controller ClickeventsController
+
+- To clear Warning: ReactDOM.render is no longer supported in React 18. Use createRoot instead used import { createRoot } from 'react-dom/client';
 
 ## Steps to Follow on deployment
 
